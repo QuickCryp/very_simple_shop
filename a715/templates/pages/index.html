@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<section>
+    <div class="my-5">
+  <div class="p-5 text-center bg-body-tertiary rounded-3">
+    <h1 class="text-body-emphasis">интернет магазин цветов</h1>
+    <p class="col-lg-8 mx-auto fs-5 text-muted">
+        Мы дарим радость нашим покупателям! Ведь наши цветы самые лучшие.
+    </p>
+  </div>
+</div>
+</section>
+
+<section>
+    <div class="album py-5 bg-body-tertiary">
+    <div class="">
+        <h1 class="text-center">Наши лучшие цветы</h1>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% for flower in flowers %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ flower.photo.url }}">
+            <div class="card-body">
+              <p class="card-text">{{ flower.name }} | {{ flower.price }}Р</p>
+                <small class="text-body-secondary">{{ flower.description }}</small>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="{% url 'general:detail' flower.id %}"><button type="button" class="btn btn-sm btn-outline-secondary">Посмотреть</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

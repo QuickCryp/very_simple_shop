@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class=" my-5">
+  <div class="p-5 text-center bg-body-tertiary rounded-3">
+      <img src="{{ flowers.photo.url }}" alt="">
+    <h1 class="text-body-emphasis">{{ flowers.name }} | {{ flowers.price }}Р</h1>
+    <p class="col-lg-8 mx-auto fs-5 text-muted">
+        {{ flowers.description }}
+    </p>
+    <div class="d-inline-flex gap-2 mb-5">
+      <button class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button">
+        Купить
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock %}
